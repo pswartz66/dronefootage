@@ -1,4 +1,3 @@
-/node_modules
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -23,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# notes for the process to build this app
+# notes for process to build app
 steps.txt
