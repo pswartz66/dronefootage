@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
+import API from '../utils/API';
 
 const Signup = () => {
     // initial variables
@@ -10,14 +11,19 @@ const Signup = () => {
 
     const handleSubmit = () => {
         // push data to an object -> to send through api
-        const obj = {
+        const userObj = {
             first_name: firstName,
             last_name: lastName,
             user_email: email,
             user_password: password
         }
-        console.log(obj)
-        
+        console.log(userObj)
+
+        API.Signup(userObj)
+            .then(res => console.log(res.data))
+            .catch(err => console.error(err))
+
+
         // reset input fields
         setFirstName('');
         setLastName('');

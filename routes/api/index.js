@@ -1,7 +1,7 @@
-const router = require("express").Router()
-const sign_up_route = require("./signin");
+const router = require('express').Router();
+const signupRoute = require('./signup');
 
 // Sign up route
-router.use("/signup", sign_up_route);
+router.use('/authenticate', signupRoute);
 
 module.exports = router;
