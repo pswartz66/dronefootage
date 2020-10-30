@@ -9,7 +9,10 @@ const Signup = () => {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        // prevent default attribute for submit button
+        e.preventDefault();
+
         // push data to an object -> to send through api
         const userObj = {
             first_name: firstName,
@@ -17,6 +20,8 @@ const Signup = () => {
             user_email: email,
             user_password: password
         }
+
+        // test console log
         console.log(userObj)
 
         API.Signup(userObj)
@@ -39,7 +44,7 @@ const Signup = () => {
 
                 <div className="signup-inputs">
 
-                    <label for="fname">First name</label>
+                    <label htmlFor="fname">First name</label>
                     <input
                         type="text"
                         name="firstName"
@@ -48,7 +53,7 @@ const Signup = () => {
                         placeholder="First name..."
                     />
 
-                    <label for="lname">Last name</label>
+                    <label htmlFor="lname">Last name</label>
                     <input
                         type="text"
                         name="lastName"
@@ -57,7 +62,7 @@ const Signup = () => {
                         placeholder="Last name..."
                     />
 
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                         type="text"
                         name="email"
@@ -66,7 +71,7 @@ const Signup = () => {
                         placeholder="Email..."
                     />
 
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input
                         type="password"
                         name="password"
@@ -75,7 +80,7 @@ const Signup = () => {
                         placeholder="Password..."
                     />
                     <br />
-                    <button onClick={handleSubmit} className="signup-btn" type="button">Submit</button>
+                    <button onClick={handleSubmit} className="signup-btn" type="submit">Submit</button>
                 </div>
             </form>
         </div>

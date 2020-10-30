@@ -1,4 +1,4 @@
-.signup-container {
+.login-container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,32 +8,32 @@
     color: white;
     background-color: #282C34;
 }
-.signup-header {
+.login-header {
     text-align: center;
     letter-spacing: 1px;
-    background: -webkit-linear-gradient(#3D7AAC 1%, #282c34 );
+    background: -webkit-linear-gradient(#3D7AAC 1%, #282C34);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.signup-divider {
+.login-divider {
     height: 2px;
     background-color: #282C34;
     box-shadow: 0px 1px 2px 0px rgb(37, 37, 37);
     margin-bottom: 12px;
 }
-.signup-form {
+.login-form {
     border-radius: 10px;
     width: 280px;
-    background: linear-gradient(0deg, rgb(88, 88, 88) 0%, rgb(147, 147, 148) 20%, rgb(209, 209, 209) 100%);
+    background: linear-gradient(0deg, rgb(88,88,88) 0%, rgb(147, 147, 148) 20%, rgb(209,209, 209) 100%);
     padding: 24px;
     box-shadow: 0px 0px 80px 0px black;
 }
-.signup-inputs {
+.login-inputs {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.signup-inputs > label {
+.login-inputs > label {
     margin-top: 6px;
     margin-bottom: 2px;
     margin-left: 1px;
@@ -42,17 +42,16 @@
     letter-spacing: normal;
     color: #282C34;
 }
-.signup-inputs > input {
+.login-inputs > input {
     border-radius: 6px;
     outline: none;
     border: none;
-    padding: 8px;   
+    padding: 8px; 
 }
-/* remove input outline */
-.signup-inputs > input:focus {
+.login-inputs > input:focus {
     outline: none;
 }
-.signup-inputs > .signup-btn {
+.login-inputs > .login-btn {
     background-color: rgb(5, 138, 23);
     height: 40px;
     border-radius: 6px;
@@ -63,7 +62,7 @@
     letter-spacing: normal;
     outline: none;
 }
-.signup-inputs > .signup-btn:hover {
+.login-inputs > .login-btn:hover {
     background-color: rgb(0, 179, 24);
     height: 40px;
     border-radius: 6px;
@@ -76,7 +75,7 @@
     outline: none;
 }
 @media only screen and (max-width: 568px) and (min-width: 240px) {
-    .signup-form {
+    .login-form {
         border-radius: 10px;
         width: 220px;
         background: linear-gradient(0deg, rgb(88, 88, 88) 0%, rgb(147, 147, 148) 20%, rgb(209, 209, 209) 100%);
@@ -84,3 +83,4 @@
         box-shadow: 0px 0px 80px 0px black;
     }
 }
+

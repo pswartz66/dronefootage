@@ -13,5 +13,11 @@ module.exports = {
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
         
+    },
+    login: function(req, res) {
+        // destruct object
+        const { login_email, login_password } = req.body
+
+
     }
 }
