@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const signupRoute = require('./signup');
+const signupRoute = require('./user');
 
 // Sign up route
 router.use('/authenticate', signupRoute);

@@ -1,3 +1,3 @@
 module.exports = {
-    SignupDB: require('./signupmodel')
+    UserDB: require('./userModel')
 }
