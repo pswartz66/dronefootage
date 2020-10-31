@@ -22,9 +22,13 @@ const Signup = () => {
         }
 
         // test console log
-        console.log(userObj)
+        console.log('Front end:');
+        console.log(userObj);
 
-        API.Signup(userObj)
+        // Register is synonymous to "Signup"
+        // changed the axios function from signup to register
+        // due to naming/importing restrictions
+        API.Register(userObj)
             .then(res => console.log(res.data))
             .catch(err => console.error(err))
 

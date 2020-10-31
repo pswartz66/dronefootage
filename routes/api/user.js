@@ -1,7 +1,14 @@
 const router = require('express').Router();
 const controller = require('../../controllers/controller');
 
-router.route('/user')
-    .post(controller.signup);
+// /user == signup route from axios front end -> see utils folder
+router.route('/user').post(controller.signup);
+
+// /login == login route from axios front end -> see utils folder
+router.route('/login').post(controller.login)
+
+// /info/:user_email
+router.route('/info/:email').get(controller.userInfo)
+
 
 module.exports = router;

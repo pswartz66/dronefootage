@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './Login.css';
-
+import API from '../utils/API';
+import { Redirect } from 'react-router-dom';
 
 function Login() {
     // initial variables
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     // let [emailValid, setEmailValid] = useState(true);
+    // let [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const handleSubmit = (e) => {
         // prevent default attribute for submit button
@@ -19,7 +21,16 @@ function Login() {
         }
 
         // test console log
+        console.log('Front end:');
         console.log(userObj);
+
+        API.LoginUser(userObj)
+            .then(res => {
+                console.log(res.data)
+                // setIsLoggedIn(true);
+                
+            })
+            .catch(err => console.error(err))
 
         // reset input fields
         setEmail('');

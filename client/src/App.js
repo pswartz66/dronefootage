@@ -4,8 +4,8 @@ import {
   Link
 } from 'react-router-dom';
 
-import Profile from './pages/Profile'
-import PublicPg from './pages/PublicPg'
+// import Profile from './pages/Profile'
+// import PublicPg from './pages/PublicPg'
 
 
 function App() {

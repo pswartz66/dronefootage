@@ -1,14 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const passport = require('passport');
-const passportLocal = require('passport-local').Strategy;
+const passport = require('./config/passport/local');
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
 const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
-
 
 // Middleware:
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +28,8 @@ app.use(cookieParser('secretcode')) // must be the same as the express-session "
 app.use(passport.initialize());
 // Call the serializers
 app.use(passport.session());
+
+// END of Middleware ----------------------------------------------------------------------
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
