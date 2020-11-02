@@ -12,8 +12,8 @@ export default {
     },
     // get a specific user by passing their email
     // userInfo == users email they signed up with
-    getUserEmail: function(userEmail) {
-        return axios.get('/api/authenticate/info/' + userEmail);
+    getUser: function(userEmail) {
+        return axios.get('/api/authenticate/user/' + userEmail);
     }
 }
 

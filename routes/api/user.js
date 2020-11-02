@@ -8,7 +8,7 @@ router.route('/user').post(controller.signup);
 router.route('/login').post(controller.login)
 
 // /info/:user_email
-router.route('/info/:email').get(controller.userInfo)
+router.route('/user/:email').get(controller.userInfo)
 
 
 module.exports = router;
