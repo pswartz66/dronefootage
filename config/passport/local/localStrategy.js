@@ -1,46 +1,58 @@
 const db = require('../../../models');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const localStrategyPP = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 
-passport.use(
+const strategy =
     // user_email = req.body.email
     // user_password = req.body.password
     // done = move on to next step once localStrategy is defined
-    new localStrategyPP((user_email, user_password, done) => {
-        db.UserDB.findOne({ email: user_email }, (err, user_email) => {
-            if (err) throw err;
-            // null == error and false == user_email
-            if (!user_email) return (null, false);
-            // if the user does exist in the db we ned to compare passwords
-            if (user_email) {
-                bcrypt.compare(user_password, (err, result) => {
-                    if (err) throw err;
-                    // if the password matches return no error messages and the user_email
-                    if (result === true) {
-                        return done(null, user_email);
-                    } else {
-                        // if comparison fails return an error message
-                        return done(null, false);
-                    }
-                })
-            }
-        })
-    })
-)
-// store cookie inside the browser that includes the user
-passport.serializeUser((user, cb) => {
-    cb(null, user.id);
-})
-// takes the cookie from the browser and returns a user from it
-passport.deserializeUser((id, cb) => {
-    // find user in the database with the id that matches the cookies id
-    db.UserDB.findOne({ _id: id }, (err, user_email) => {
-        if (err) throw err;
-        if (user_email) {
-            cb(err, user_email)
-        }
-    })
-})
 
-module.exports = passport;
+    new LocalStrategy(
+        // must equal the object property names sent from client/frontend/axios
+        {
+            usernameField: 'user_email',
+            passwordField: 'user_password'
+        },
+
+        // password here represents the password from the client login form
+        function (username, password, done) {
+            console.log('inside auth local strat');
+            console.log(username);
+
+            // user here represents each database user as it's own object
+            db.UserDB.findOne({ email: username }, function (err, user) {
+                
+                if (err) return done(err);
+                // null == error and false == user_email
+                if (!user) return (null, false);
+                // if the user does exist in the db we ned to compare passwords
+
+                // Using BCRYPT method
+                if (user) {
+
+                    // password here represents the password from the client login form
+                    // user.password represents the password that is already in the database
+                    bcrypt.compare(password, user.password, (err, result) => {
+                        if (err) throw err;
+                        // if the password matches return no error messages and the user_email
+                        // user is sent back to the route handler in routes/api/user response
+                        if (result === true) {
+                            console.log('Password Comparison Complete, Match Found!')
+                            return done(null, user);
+                        }
+                        // if the password does not match the users password
+                        // log out a message/modal return false back to routes/api/user response
+                        if (result === false) {
+                            // if comparison fails return an error message
+                            console.log('Password Comparison Failed, User DNE or Passwords do not match!')
+                            return done(null, false);
+                        }
+                    })
+                }
+            })
+        })
+
+
+
+module.exports = strategy;

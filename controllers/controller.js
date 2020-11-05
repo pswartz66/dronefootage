@@ -1,9 +1,9 @@
 // require in the db models
 const db = require('../models');
 const bcrypt = require('bcrypt');
-const passport = require('passport');
+// const passport = require('passport');
 // const { authenticate } = require('passport');
-const localStrategyP = require('../config/passport/local/')
+// const localStrategyP = require('../config/passport/local/')
 
 module.exports = {
     signup: function (req, res) {
@@ -32,12 +32,24 @@ module.exports = {
 
 
     },
-    login: function (req, res) {
+    login: function (req, res, next) {
+        console.log('login user email: ');
         // destruct object
         const { user_email } = req.body;
-        console.log('login user email: ');
-        console.log(user_email);
 
+        // db.UserDB.findOne({ email: user_email }, (err, doc) => {
+        //     // if there is an error then do not attempt authentication
+        //     if (err) {
+        //         console.log(`User: ${user_email} Does Not Exist, Please Sign Up`)
+        //         doc.end();
+        //     } else {
+                
+        //     }
+        // })
+
+        // continue to authentication
+        next();
+        
         // passport.authenticate(localStrategyP, { failureRedirect: '/login'}, (req, res) => {
 
         //     // res.redirect('/public');
@@ -47,20 +59,21 @@ module.exports = {
         // })
         // authenticateUser()
         // authenticate with passport local strategy
-        passport.authenticate('local', (err, user, info) => {
-            console.log('USER: ');
-            console.log(user);
 
-            if (err) throw err;
+        
+        // passport.authenticate('local', (err, user, info) => {
+        //     console.log('USER: ');
+        //     console.log(user);
 
-            if (!user) {
-                res.send(`User: No email exists`)
-            } else {
-                res.redirect('http://localhost:3000/public');
-                res.send(`User: ${user} successfully authenticated and signed in!`);
-                console.log('made it to login:\n' + user);
-            }
-        });
+        //     if (err) throw err;
+
+        //     if (!user) {
+        //         res.send(`User: No email exists`)
+        //     } else {
+        //         res.send(`User: ${user} successfully authenticated and signed in!`);
+        //         console.log('made it to login:\n' + user);
+        //     }
+        // });
 
 
     },

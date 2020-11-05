@@ -9,6 +9,7 @@ function Login() {
     let [password, setPassword] = useState('');
     // let [emailValid, setEmailValid] = useState(true);
     // let [isLoggedIn, setIsLoggedIn] = useState(false);
+    let [redirectTo, setRedirect] = useState(null);
 
     const handleSubmit = (e) => {
         // prevent default attribute for submit button
@@ -26,9 +27,10 @@ function Login() {
 
         API.LoginUser(userObj)
             .then(res => {
+                
                 console.log(res.data)
                 // setIsLoggedIn(true);
-                
+                setRedirect('/public')
             })
             .catch(err => console.error(err))
 
@@ -41,40 +43,47 @@ function Login() {
 
 
     return (
-        <div className="login-container">
-            <form className="login-form">
-                <h1 className="login-header">Login</h1>
-                <div className="login-divider" />
+        <>
+            {(redirectTo) !== null ?
 
-                <div className="login-inputs">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        onChange={e => setEmail(e.target.value)}
-                        value={email}
-                        placeholder={"Email..."}
-                    />
+                <Redirect to="/public" />
+                :
+                <div className="login-container">
+                    <form className="login-form">
+                        <h1 className="login-header">Login</h1>
+                        <div className="login-divider" />
+
+                        <div className="login-inputs">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={e => setEmail(e.target.value)}
+                                value={email}
+                                placeholder={"Email..."}
+                            />
 
 
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        onChange={e => setPassword(e.target.value)}
-                        value={password}
-                        placeholder={"Password..."}
-                    />
-                    <br />
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={e => setPassword(e.target.value)}
+                                value={password}
+                                placeholder={"Password..."}
+                            />
+                            <br />
 
-                    {/* {(validEmailRegex.test(email) ? <div></div> : (<div>Email not valid</div>) )} */}
+                            {/* {(validEmailRegex.test(email) ? <div></div> : (<div>Email not valid</div>) )} */}
 
-                    <button onClick={handleSubmit} className="login-btn" type="submit">Submit</button>
+                            <button onClick={handleSubmit} className="login-btn" type="submit">Submit</button>
 
+                        </div>
+
+                    </form>
                 </div>
-
-            </form>
-        </div>
+            }
+        </>
     )
 }
 
