@@ -26,8 +26,8 @@ const strategy =
                 if (err) return done(err);
                 // null == error and false == user_email
                 if (!user) return (null, false);
-                // if the user does exist in the db we ned to compare passwords
 
+                // if the user does exist in the db we ned to compare passwords
                 // Using BCRYPT method
                 if (user) {
 

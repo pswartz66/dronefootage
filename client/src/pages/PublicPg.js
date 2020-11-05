@@ -1,20 +1,13 @@
 import React from 'react';
-import API from '../utils/API';
 
-function PublicPg() {
+function PublicPg(props) {
 
-    // const getUserInfo = () => {
-    //     API.getUserEmail()
-    //         .then(res => console.log(res.data))
-    //         .catch(err => console.error(err))
-    // }
-
-    // getUserInfo();
-
+    // user === email from the login page
+    const user = props.location.state;
 
     return(
         <div>
-            Public
+            Welcome to the public page {user}
         </div>
     )
 }

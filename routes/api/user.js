@@ -11,6 +11,9 @@ router.route('/login').post(controller.login, passport.authenticate('local'), (r
         let user_info = {
             user_email
         }
+
+        console.log('this is the final user')
+        console.log(user_info);
         // send the user's email back to client
         res.send(user_info);
     })

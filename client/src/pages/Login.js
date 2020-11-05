@@ -10,7 +10,8 @@ function Login() {
     // let [emailValid, setEmailValid] = useState(true);
     // let [isLoggedIn, setIsLoggedIn] = useState(false);
     let [redirectTo, setRedirect] = useState(null);
-
+    let [db_user, setDb_user] = useState('');
+ 
     const handleSubmit = (e) => {
         // prevent default attribute for submit button
         e.preventDefault();
@@ -28,8 +29,9 @@ function Login() {
         API.LoginUser(userObj)
             .then(res => {
                 
-                console.log(res.data)
+                console.log(res.data.user_email);
                 // setIsLoggedIn(true);
+                setDb_user(res.data.user_email)
                 setRedirect('/public')
             })
             .catch(err => console.error(err))
@@ -46,7 +48,7 @@ function Login() {
         <>
             {(redirectTo) !== null ?
 
-                <Redirect to="/public" />
+                <Redirect to={{pathname: "/public", state: db_user }} />
                 :
                 <div className="login-container">
                     <form className="login-form">
