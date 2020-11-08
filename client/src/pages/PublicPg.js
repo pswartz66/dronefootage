@@ -1,6 +1,7 @@
 import React from 'react';
 import './PublicPg.css';
-import PublicHeader from '../components/PublicHeader'
+import PublicHeader from '../components/PublicHeader';
+
 
 const PublicPg = (props) => {
 

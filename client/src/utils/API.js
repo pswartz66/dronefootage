@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default {
+const AXIOS_API = {
     // Register is synonymous to "Signup"
     // changed the axios function from signup to register
     // due to naming/importing restrictions
@@ -17,5 +17,4 @@ export default {
     }
 }
 
-
-
+export default AXIOS_API;

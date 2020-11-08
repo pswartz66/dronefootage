@@ -14,3 +14,7 @@
 .headerUsername {
     color: white;
 }
+
+.navbar > svg:hover {
+    cursor: pointer;
+}
