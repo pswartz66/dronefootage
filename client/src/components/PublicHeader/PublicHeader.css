@@ -12,9 +12,54 @@
     padding: 10px;
 }
 .headerUsername {
+    float: right;
     color: white;
 }
 
 .navbar > svg:hover {
     cursor: pointer;
 }
+
+.dfLogo {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(32, 49, 58);
+    padding: 2px;
+    border-radius: 3px;
+}
+
+/* search form */
+.navbar > form {
+    margin-left: 10px;
+}
+.navbar > form > svg {
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 3px;
+}
+.navbar > form > input {
+    width: 190px;
+}
+.searchField {
+    background-color: rgb(228, 228, 228);
+    padding-left: 20px;
+    height: 28px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    font-size: 13px;
+    align-items: center;
+}
+.searchField:focus-within {
+    background-color: white;
+    padding-left: 24px;
+    height: 28px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    align-items: center;
+    color: #282c34;
+}
+
+
