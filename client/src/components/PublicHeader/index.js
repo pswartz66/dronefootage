@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PublicHeader.css';
 import appLogo from '../../assets/images/dfLogo.png';
 import MdSearch from 'react-ionicons/lib/MdSearch';
 import MdPerson from 'react-ionicons/lib/MdPerson';
+import { Link } from 'react-router-dom';
+import API from '../../utils/API';
 
 const PublicHeader = (props) => {
 
@@ -10,11 +12,14 @@ const PublicHeader = (props) => {
 
     const openMenu = () => setShowMenu(!showMenu);
 
-    // useEffect(() => {
+    // console.log(props);
 
-    // }, [showMenu]);
-
-    console.log(props);
+    const logoutSession = () => {
+        API.LogoutUser().then(res => {
+            console.log(res.data);
+        })
+    }
+    
 
     return (
         <nav className="navbar navbar-default navbar-fixed-top">
@@ -40,20 +45,17 @@ const PublicHeader = (props) => {
                 <div className="user-name">{props.userName}</div>
 
                 {(showMenu) ?
-                    <div className="drop-down-visible">
+                    <div className="dropdown-visible">
                         <button className="view-profile-btn" type="submit">View Profile</button>
                         <div className="dropdown-divider"></div>
 
                         <div className="dropdown-header">Account</div>
-                        {/* <div> */}
-                            <div className="dropdown-sub">Settings</div>
-                            <div className="dropdown-sub">Help</div>
+                        <Link to="/settings" className="dropdown-sub">Settings</Link>
+                        <Link to="/help" className="dropdown-sub">Help</Link>
 
-                            <div className="dropdown-divider-t"></div>
-                            
+                        <div className="dropdown-divider-t"></div>
 
-                            <div className="dropdown-header">Sign Out</div>
-                        {/* </div> */}
+                        <Link onClick={logoutSession} to="/" className="dropdown-signout">Sign Out</Link>
 
                     </div>
                     :

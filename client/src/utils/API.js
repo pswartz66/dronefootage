@@ -10,6 +10,9 @@ const AXIOS_API = {
     LoginUser: function (obj) {
         return axios.post('/api/authenticate/login', obj);
     },
+    LogoutUser: function () {
+        return axios.get('/api/authenticate/logout');
+    },
     // get a specific user by passing their email
     // userInfo == users email they signed up with
     getUser: function(userEmail) {

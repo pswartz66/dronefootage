@@ -84,7 +84,7 @@
     transform: scale(1.1);
 }
 
-.drop-down-visible {
+.dropdown-visible {
     position: absolute;
     top: 60px;
     right: 0;
@@ -94,6 +94,9 @@
     background-color: rgb(235, 233, 233);
     border-radius: 10px;
     padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .dropdown-divider {
@@ -109,6 +112,11 @@
     margin-bottom: 2px;
 }
 .dropdown-header {
+    font-size: 16px;
+    text-decoration: bold;
+    color: black;
+}
+.dropdown-signout {
     font-size: 16px;
     text-decoration: bold;
     color: black;
@@ -135,13 +143,30 @@
     width: 100%;
     padding: 6px;
 }
-.dropdown-sub {
+.dropdown-visible > a {
+    text-decoration: none;
+}
+a.dropdown-sub {
     font-size: 14px;
     color: rgb(150, 150, 150);
     margin-top: 10px;
-    height: 20px;
-
 }
+a.dropdown-sub:hover {
+    transition: all 0.25s ease-in-out;
+    color: black;
+    text-decoration: underline;
+}
+a.dropdown-signout {
+    font-size: 16px;
+    text-decoration: bold;
+    color: black;
+}
+a.dropdown-signout:hover {
+    transition: all 0.25s ease-in-out;
+    color: black;
+    text-decoration: underline;
+}
+
   /* hide user name if screen < 500px */
   @media only screen and (max-width: 500px) {
     .user-name {

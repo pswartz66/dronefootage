@@ -1,7 +1,7 @@
 // require in the db models
 const db = require('../models');
 const bcrypt = require('bcrypt');
-// const passport = require('passport');
+const passport = require('passport');
 // const { authenticate } = require('passport');
 // const localStrategyP = require('../config/passport/local/')
 
@@ -43,39 +43,26 @@ module.exports = {
         //         console.log(`User: ${user_email} Does Not Exist, Please Sign Up`)
         //         doc.end();
         //     } else {
-                
+
         //     }
         // })
 
         // continue to authentication
         next();
-        
-        // passport.authenticate(localStrategyP, { failureRedirect: '/login'}, (req, res) => {
 
-        //     // res.redirect('/public');
-        //     res.send('Made it past auth')
-        //     console.log(res.data);
+    },
+    logoutUser: function (req, res, next) {
+        console.log('Successfully logged out user and ended passport session')
+        // passport logout function ends session for you
+        req.logout();
+        // res.redirect('/');
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Expires', '-1');
+        res.header('Pragma', 'no-cache');
 
-        // })
-        // authenticateUser()
-        // authenticate with passport local strategy
+        next();
 
-        
-        // passport.authenticate('local', (err, user, info) => {
-        //     console.log('USER: ');
-        //     console.log(user);
-
-        //     if (err) throw err;
-
-        //     if (!user) {
-        //         res.send(`User: No email exists`)
-        //     } else {
-        //         res.send(`User: ${user} successfully authenticated and signed in!`);
-        //         console.log('made it to login:\n' + user);
-        //     }
-        // });
-
-
+        // res.send('logged out');
     },
     userInfo: function (req, res) {
         const { u_email } = req.params.user_email;

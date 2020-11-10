@@ -17,6 +17,12 @@ router.route('/login').post(controller.login, passport.authenticate('local'), (r
         // send the user's email back to client
         res.send(user_info);
     })
+// /logout user
+router.route('/logout').get(controller.logoutUser, (req, res) => {
+    
+    res.send('logged out user');
+});
+
 // /info/:user_email
 router.route('/user/:email').get(controller.userInfo)
 
