@@ -1,16 +1,15 @@
 .navbar {
-    background-color: rgba(0, 0, 0)!important;
+    background-color: rgba(14, 14, 14, 0.973)!important;
     box-shadow: 0 2px 10px -2px #3d3d3d;
     color: whitesmoke;
     font-family: 'Lato', sans-serif;
     display: flex;
-    align-items: center;
     height: 40px;
     width: 100%;
     position: fixed;
-    /* opacity: .5; */
     padding: 10px;
 }
+
 .headerUsername {
     float: right;
     color: white;
@@ -29,10 +28,10 @@
 }
 
 /* search form */
-.navbar > form {
+.navbar > .nav-left > form {
     margin-left: 10px;
 }
-.navbar > form > svg {
+.navbar > .nav-left > form > svg {
     position: absolute;
     padding-top: 5px;
     padding-left: 3px;
@@ -61,5 +60,91 @@
     align-items: center;
     color: #282c34;
 }
+.nav-left {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav-right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+}
+.user-icon {
+    margin: 6px;
+    background: linear-gradient(0deg, #5c5c5c 0%, rgb(109, 109, 114) 20%, rgb(255, 255, 255) 100%);
+    border-radius: 50%;
+    padding: 6px;
+}
+.user-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
+.drop-down-visible {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    margin-right: 40px;
+    height: 220px;
+    width: 158px;
+    background-color: rgb(235, 233, 233);
+    border-radius: 10px;
+    padding: 6px;
+}
 
+.dropdown-divider {
+    height: 1px;
+    background-color: #747474;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+.dropdown-divider-t {
+    height: 1px;
+    background-color: #747474;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+.dropdown-header {
+    font-size: 16px;
+    text-decoration: bold;
+    color: black;
+}
+
+.view-profile-btn {
+    outline: none;
+    border: solid 0.5px #3D7AAC;
+    border-radius: 28px;
+    color: #3D7AAC;
+    background-color: white;
+    width: 100%;
+    padding: 6px;
+}
+.view-profile-btn:hover {
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+    color: white;
+    background-color: #83abcc;
+    outline: none;
+    border: solid 0.5px #3D7AAC;
+    border-radius: 28px;
+    width: 100%;
+    padding: 6px;
+}
+.dropdown-sub {
+    font-size: 14px;
+    color: rgb(150, 150, 150);
+    margin-top: 10px;
+    height: 20px;
+
+}
+  /* hide user name if screen < 500px */
+  @media only screen and (max-width: 500px) {
+    .user-name {
+        display: none;
+    }
+}
