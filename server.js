@@ -19,7 +19,7 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('body-parser').json());
 app.use(require('express-session')({ 
     secret: 'secretcode',
-    resave: true, 
+    resave: false, // changed to false to see if session gets destroyed on logOut 
     saveUninitialized: false
 }));
 app.use(cookieParser('secretcode')) // must be the same as the express-session "secret"

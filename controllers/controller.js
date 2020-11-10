@@ -28,7 +28,7 @@ module.exports = {
             }
         }).catch(err => {
             throw err;
-        })
+        });
 
 
     },
@@ -53,16 +53,7 @@ module.exports = {
     },
     logoutUser: function (req, res, next) {
         console.log('Successfully logged out user and ended passport session')
-        // passport logout function ends session for you
-        req.logout();
-        // res.redirect('/');
-        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-        res.header('Expires', '-1');
-        res.header('Pragma', 'no-cache');
-
         next();
-
-        // res.send('logged out');
     },
     userInfo: function (req, res) {
         const { u_email } = req.params.user_email;
