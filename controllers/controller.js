@@ -23,7 +23,10 @@ module.exports = {
             if (!doc) {
                 const hashedPassword = await bcrypt.hash(user_password, 10);
                 await db.UserDB.create({ firstname: first_name, lastname: last_name, email: user_email, password: hashedPassword })
-                    .then(data => res.json(data))
+                    .then(data => {
+                        res.json(data)
+                        res.send(data)
+                    })
                     .catch(err => res.status(422).json(err))
             }
         }).catch(err => {

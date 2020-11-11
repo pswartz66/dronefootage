@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
 import { Redirect } from 'react-router-dom';
@@ -6,17 +6,13 @@ import { Redirect } from 'react-router-dom';
 
 const PublicPg = (props) => {
 
-    let [userStatus, setUserStatus] = useState(false);
-
     // user === email from the login page
     const user = props.location.state;
-
-    
 
 
     return (
         <>
-            { (user) ?
+            {/* { (user) ? */}
                 <div>
                     <PublicHeader userName={user} />
 
@@ -30,9 +26,9 @@ const PublicPg = (props) => {
                     </div>
 
                 </div>
-                :
+                {/* :
                 <Redirect to={{pathname: "/login", state: null }} />
-            }
+            } */}
         </>
     )
 }

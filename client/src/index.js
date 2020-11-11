@@ -6,7 +6,6 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import PublicPg from './pages/PublicPg';
 
-
 import {
   BrowserRouter as Router,
   Switch,

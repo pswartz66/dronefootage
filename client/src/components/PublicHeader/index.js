@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PublicHeader.css';
 import appLogo from '../../assets/images/dfLogo.png';
 import MdSearch from 'react-ionicons/lib/MdSearch';
 import MdPerson from 'react-ionicons/lib/MdPerson';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 
 const PublicHeader = (props) => {
 
     let [showMenu, setShowMenu] = useState(false);
-    let [isUserAuthed, setIsUserAuthed] = useState(false);
 
     const openMenu = () => setShowMenu(!showMenu);
 
@@ -18,11 +17,6 @@ const PublicHeader = (props) => {
     const logoutSession = () => {
         API.LogoutUser().then(res => {
             console.log(res.data);
-            // if (res.data.status === null) {
-            //     setIsUserAuthed(false);
-            // } else {
-            //     setIsUserAuthed(true);
-            // }
         })
     }
     

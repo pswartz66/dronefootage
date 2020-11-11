@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import API from '../utils/API';
 import { Redirect } from 'react-router-dom';
@@ -27,7 +27,7 @@ function Login() {
         API.LoginUser(userObj)
             .then(res => {
                 console.log(res.data.user_email);
-                setDb_user(res.data.user_email)
+                setDb_user(res.data.user_email);
                 setRedirect('/public')
             })
             .catch(err => console.error(err))
@@ -36,10 +36,6 @@ function Login() {
         setEmail('');
         setPassword('');
     }
-
-
-    // const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
-
 
     return (
         <>
@@ -72,8 +68,6 @@ function Login() {
                                 placeholder={"Password..."}
                             />
                             <br />
-
-                            {/* {(validEmailRegex.test(email) ? <div></div> : (<div>Email not valid</div>) )} */}
 
                             <button onClick={handleSubmit} className="login-btn" type="submit">Submit</button>
 
