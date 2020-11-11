@@ -1,9 +1,15 @@
 import React from 'react';
+import PublicHeader from '../components/PublicHeader';
 
-function Profile() {
+function Profile(props) {
+
+    let user = props.location.state;
+    console.log('Profile: ', user);
+
     return(
         <div>
-            Profile
+            <PublicHeader userName={user}/>
+
         </div>
     )
 }

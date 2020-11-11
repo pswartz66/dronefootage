@@ -21,7 +21,6 @@ const PublicHeader = (props) => {
     }
     
 
-
     return (
         <>
         <nav className="navbar navbar-default navbar-fixed-top">
@@ -48,7 +47,7 @@ const PublicHeader = (props) => {
 
                 {(showMenu) ?
                     <div className="dropdown-visible">
-                        <button className="view-profile-btn" type="submit">View Profile</button>
+                        <Link to={{ pathname: "/profile", state: props.userName }} className="view-profile-btn">View Profile</Link>
                         <div className="dropdown-divider"></div>
 
                         <div className="dropdown-header">Account</div>
@@ -63,9 +62,8 @@ const PublicHeader = (props) => {
                     :
                     null
                 }
-
+                
             </div>
-
         </nav>
 
     </>

@@ -128,8 +128,9 @@
     border-radius: 28px;
     color: #3D7AAC;
     background-color: white;
-    width: 100%;
     padding: 6px;
+    text-align: center;
+    font-size: 14px;
 }
 .view-profile-btn:hover {
     cursor: pointer;
@@ -140,8 +141,9 @@
     outline: none;
     border: solid 0.5px #3D7AAC;
     border-radius: 28px;
-    width: 100%;
     padding: 6px;
+    text-align: center;
+    font-size: 14px;
 }
 .dropdown-visible > a {
     text-decoration: none;

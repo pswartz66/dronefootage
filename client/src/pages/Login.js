@@ -37,6 +37,7 @@ function Login() {
         setPassword('');
     }
 
+
     return (
         <>
             {(redirectTo) !== null ?
@@ -56,6 +57,7 @@ function Login() {
                                 onChange={e => setEmail(e.target.value)}
                                 value={email}
                                 placeholder={"Email..."}
+                                autoComplete={'test'}
                             />
 
 

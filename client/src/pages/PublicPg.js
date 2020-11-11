@@ -1,7 +1,6 @@
 import React from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
-import { Redirect } from 'react-router-dom';
 
 
 const PublicPg = (props) => {
@@ -10,25 +9,29 @@ const PublicPg = (props) => {
     const user = props.location.state;
 
 
+    // here it seems like we need an authentication function that runs
+    // immediately everytime /public route is hit... 
+    // will need a function that 
+    // 1. verifies the _id or hashed password form the user
+    // 2. returns the data as a check
+    // 3. there needs to be some sort of gaurd here
+
     return (
         <>
-            {/* { (user) ? */}
-                <div>
-                    <PublicHeader userName={user} />
+            <div>
+                <PublicHeader userName={user} />
 
-                    <div className="public-container">
+                <div className="public-container">
 
-                        <div className="wireframe">
-                            <h2>Add user cards here</h2>
+                    <div className="wireframe">
+                        <h2>Add user cards here</h2>
 
 
-                        </div>
                     </div>
-
                 </div>
-                {/* :
-                <Redirect to={{pathname: "/login", state: null }} />
-            } */}
+
+            </div>
+
         </>
     )
 }

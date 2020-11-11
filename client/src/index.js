@@ -5,6 +5,7 @@ import App from './App';
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import PublicPg from './pages/PublicPg';
+import Profile from './pages/Profile';
 
 import {
   BrowserRouter as Router,
@@ -26,6 +27,8 @@ ReactDOM.render(
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/public" component={PublicPg} />
+        <Route exact path="/profile" component={Profile} />
+
 
       </Switch>
 

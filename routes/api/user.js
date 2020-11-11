@@ -29,7 +29,7 @@ router.route('/logout').get(controller.logoutUser, (req, res) => {
 
 
 // /info/:user_email
-router.route('/user/:email').get(controller.userInfo)
+// router.route('/user/:email').get(controller.userInfo)
 
 
 module.exports = router;

@@ -13,11 +13,7 @@ const AXIOS_API = {
     LogoutUser: function () {
         return axios.get('/api/authenticate/logout');
     },
-    // get a specific user by passing their email
-    // userInfo == users email they signed up with
-    getUser: function(userEmail) {
-        return axios.get('/api/authenticate/user/' + userEmail);
-    }
+    
 }
 
 export default AXIOS_API;

@@ -24,7 +24,7 @@ module.exports = {
                 const hashedPassword = await bcrypt.hash(user_password, 10);
                 await db.UserDB.create({ firstname: first_name, lastname: last_name, email: user_email, password: hashedPassword })
                     .then(data => {
-                        res.json(data)
+                        // res.json(data)
                         res.send(data)
                     })
                     .catch(err => res.status(422).json(err))
@@ -58,11 +58,11 @@ module.exports = {
         console.log('Successfully logged out user and ended passport session')
         next();
     },
-    userInfo: function (req, res) {
-        const { u_email } = req.params.user_email;
+    // userInfo: function (req, res) {
+    //     const { u_email } = req.params.user_email;
 
-        db.UserDB.findOne({ email: u_email })
-            .then(data => res.json(data))
-            .catch(err => console.error(err))
-    }
+    //     db.UserDB.findOne({ email: u_email })
+    //         .then(data => res.json(data))
+    //         .catch(err => console.error(err))
+    // }
 }
