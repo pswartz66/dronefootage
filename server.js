@@ -21,6 +21,7 @@ app.use(require('express-session')({
     secret: 'secretcode',
     resave: false, // changed to false to see if session gets destroyed on logOut 
     saveUninitialized: false
+    // cookie: { maxAge: 0 }
 }));
 app.use(cookieParser('secretcode')) // must be the same as the express-session "secret"
 

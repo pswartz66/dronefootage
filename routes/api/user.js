@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const controller = require('../../controllers/controller');
 const passport = require('../../config/passport/local');
+const path = require('path');
 
 // /user == signup route from axios front end -> see utils folder
 router.route('/user').post(controller.signup);
@@ -17,19 +18,14 @@ router.route('/login').post(controller.login, passport.authenticate('local'), (r
     // send the user's email back to client
     res.send(user_info);
 })
-// /logout user
+// /logout user and remove cookie
 router.route('/logout').get(controller.logoutUser, (req, res) => {
-    req.logout();
-    // req.session.destroy(function (err) {
-    //     if (err) {
-    //         return err;
-    //     }
-    //     return res.send({ success: true });
-    // });
 
-    res.redirect('/');
-    
+    res.clearCookie('connect.sid', { path: '/'}).status(200).send('Ok.');
+    console.log('Session destroyed: ', req.session.destroy());
+    req.logout();
 });
+
 
 // /info/:user_email
 router.route('/user/:email').get(controller.userInfo)
