@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PublicHeader.css';
 import appLogo from '../../assets/images/dfLogo.png';
 import MdSearch from 'react-ionicons/lib/MdSearch';
 import MdPerson from 'react-ionicons/lib/MdPerson';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 const PublicHeader = (props) => {
 
     let [showMenu, setShowMenu] = useState(false);
+    let [isUserAuthed, setIsUserAuthed] = useState(false);
 
     const openMenu = () => setShowMenu(!showMenu);
 
@@ -17,11 +18,18 @@ const PublicHeader = (props) => {
     const logoutSession = () => {
         API.LogoutUser().then(res => {
             console.log(res.data);
+            // if (res.data.status === null) {
+            //     setIsUserAuthed(false);
+            // } else {
+            //     setIsUserAuthed(true);
+            // }
         })
     }
     
 
+
     return (
+        <>
         <nav className="navbar navbar-default navbar-fixed-top">
 
             <div className="nav-left">
@@ -55,7 +63,7 @@ const PublicHeader = (props) => {
 
                         <div className="dropdown-divider-t"></div>
 
-                        <Link onClick={logoutSession} to="/" className="dropdown-signout">Sign Out</Link>
+                        <Link onClick={() => logoutSession()} to="/" className="dropdown-signout">Sign Out</Link>
 
                     </div>
                     :
@@ -66,7 +74,8 @@ const PublicHeader = (props) => {
 
         </nav>
 
-    )
+    </>
+    )   
 }
 
 export default PublicHeader;

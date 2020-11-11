@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
 import API from '../utils/API';
 import { Redirect } from 'react-router-dom';
@@ -7,8 +7,6 @@ function Login() {
     // initial variables
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
-    // let [emailValid, setEmailValid] = useState(true);
-    // let [isLoggedIn, setIsLoggedIn] = useState(false);
     let [redirectTo, setRedirect] = useState(null);
     let [db_user, setDb_user] = useState('');
  
@@ -25,13 +23,10 @@ function Login() {
         // test console log
         console.log('Front end:');
         console.log(userObj);
-
         
         API.LoginUser(userObj)
             .then(res => {
-                
                 console.log(res.data.user_email);
-                // setIsLoggedIn(true);
                 setDb_user(res.data.user_email)
                 setRedirect('/public')
             })
@@ -41,6 +36,7 @@ function Login() {
         setEmail('');
         setPassword('');
     }
+
 
     // const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 

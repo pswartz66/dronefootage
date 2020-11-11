@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
+import { Redirect } from 'react-router-dom';
 
 
 const PublicPg = (props) => {
 
+    let [userStatus, setUserStatus] = useState(false);
+
     // user === email from the login page
     const user = props.location.state;
 
-    return(
-        <div>
-            {/* Welcome to the public page {user} */}
-            <PublicHeader userName={user} />
+    
 
 
-            <div className="public-container">
+    return (
+        <>
+            { (user) ?
+                <div>
+                    <PublicHeader userName={user} />
 
-                <div className="wireframe">
-                    <h2>Add user cards here</h2>            
+                    <div className="public-container">
 
+                        <div className="wireframe">
+                            <h2>Add user cards here</h2>
+
+
+                        </div>
+                    </div>
 
                 </div>
-            </div>
-
-        </div>
+                :
+                <Redirect to={{pathname: "/login", state: null }} />
+            }
+        </>
     )
 }
 

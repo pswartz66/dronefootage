@@ -20,8 +20,9 @@ router.route('/login').post(controller.login, passport.authenticate('local'), (r
 })
 // /logout user and remove cookie
 router.route('/logout').get(controller.logoutUser, (req, res) => {
-
-    res.clearCookie('connect.sid', { path: '/'}).status(200).send('Ok.');
+    let userStatus = null;
+    res.clearCookie('connect.sid', { path: '/'}).status(200).send({ status: userStatus });
+    // res.send({ status: userStatus });
     console.log('Session destroyed: ', req.session.destroy());
     req.logout();
 });
