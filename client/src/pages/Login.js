@@ -9,7 +9,8 @@ function Login() {
     let [password, setPassword] = useState('');
     let [redirectTo, setRedirect] = useState(null);
     let [db_user, setDb_user] = useState('');
- 
+    let [shake, setShake] = useState('');
+
     const handleSubmit = (e) => {
         // prevent default attribute for submit button
         e.preventDefault();
@@ -23,29 +24,49 @@ function Login() {
         // test console log
         console.log('Front end:');
         console.log(userObj);
-        
+
         API.LoginUser(userObj)
             .then(res => {
                 console.log(res.data.user_email);
-                setDb_user(res.data.user_email);
-                setRedirect('/public')
+
+                if (res.data.user_email) {
+                    setDb_user(res.data.user_email);
+                    setRedirect('/public')
+                } else {
+                    // if user form returns an error shake form 
+                    // and reset css class after 1.5 seconds
+                    setShake('shake');
+                    setTimeout(() => {
+                        setShake('')
+                    }, 1500);
+                }
+
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+
+                // if user form returns an error shake form 
+                // and reset css class after 1.5 seconds
+                setShake('shake');
+                setTimeout(() => {
+                    setShake('')
+                }, 1500);
+
+            })
 
         // reset input fields
         setEmail('');
         setPassword('');
     }
 
-
     return (
         <>
             {(redirectTo) !== null ?
 
-                <Redirect to={{pathname: "/public", state: db_user }} />
+                <Redirect to={{ pathname: "/public", state: db_user }} />
                 :
                 <div className="login-container">
-                    <form className="login-form">
+                    <form className={`login-form ${shake}`}>
                         <h1 className="login-header">Login</h1>
                         <div className="login-divider" />
 
