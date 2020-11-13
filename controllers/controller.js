@@ -65,4 +65,17 @@ module.exports = {
     //         .then(data => res.json(data))
     //         .catch(err => console.error(err))
     // }
+    saveProfileImage: function (req, res) {
+        // destruct object
+        const { usr_email, imageString } = req.body;
+        console.log(req.body);
+        
+        db.UserDB.findOneAndUpdate({ email: usr_email }, { $push: {profileImage: imageString }})
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => console.log(err))
+
+
+    }
 }

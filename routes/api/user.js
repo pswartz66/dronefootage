@@ -27,6 +27,7 @@ router.route('/logout').get(controller.logoutUser, (req, res) => {
     req.logout();
 });
 
+router.route('/user-profile-image').post(controller.saveProfileImage);
 
 // /info/:user_email
 // router.route('/user/:email').get(controller.userInfo)

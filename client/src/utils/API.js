@@ -13,7 +13,10 @@ const AXIOS_API = {
     LogoutUser: function () {
         return axios.get('/api/authenticate/logout');
     },
-    
+    saveImageToDB: function (obj) {
+        return axios.post('/api/authenticate/user-profile-image', obj);
+    }
+
 }
 
 export default AXIOS_API;
