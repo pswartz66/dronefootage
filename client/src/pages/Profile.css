@@ -7,23 +7,30 @@
 }
 
 .profile-card {
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 80px;
     margin-left: 20px;
     margin-right: 20px;
     height: 200px;
     background-color: #282C34;
     border-radius: 20px;
-    padding: 10px;
+    /* padding: 10px; */
     box-shadow: 0px 0px 20px 0px rgb(53, 53, 53);
     
 }
 
 .profile-img-icon {
+    height: 40px;
+    width: 40px;
     margin: 10px;
-    background: linear-gradient(0deg, #5c5c5c 0%, rgb(109, 109, 114) 20%, rgb(255, 255, 255) 100%);
+    /* background: linear-gradient(0deg, #5c5c5c 0%, rgb(109, 109, 114) 20%, rgb(255, 255, 255) 100%); */
+    background-color: rgb(130, 180, 196);
     border-radius: 50%;
-    padding: 10px;
+    padding: 30px;
+    /* border: solid 1px rgb(71, 71, 71); */
 }
 .profile-img-icon:hover {
     cursor: pointer;
@@ -52,4 +59,23 @@ img[alt*="profileImage"] {
     box-shadow: 0px 0px 20px 0px rgb(50, 61, 70);
     background-color: rgb(247, 247, 247)!important;
     height: 110px;    
+}
+
+.profile-card-img {
+    display: flex;
+    height: 200px;
+    width: 180px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.932);
+    /* align-items: center; */
+    justify-content: center;
+}
+.profile-card-info {
+    height: 200px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background-color: rgb(252, 252, 215);
+
 }

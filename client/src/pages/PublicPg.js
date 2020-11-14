@@ -7,7 +7,7 @@ const PublicPg = (props) => {
 
     // user === email from the login page
     const user = props.location.state;
-    console.log(user);
+    console.log('Public page intercept: ', user);
 
 
     // here it seems like we need an authentication function that runs
@@ -23,12 +23,17 @@ const PublicPg = (props) => {
                 <PublicHeader userData={user} />
 
                 <div className="public-container">
-
+                    {(user) ?
                     <div className="wireframe">
                         <h2>Add user cards here</h2>
 
-
                     </div>
+                        :
+                        <div>
+                            
+
+                        </div> 
+                    }
                 </div>
 
             </div>

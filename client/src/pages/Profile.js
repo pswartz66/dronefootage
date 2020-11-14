@@ -65,8 +65,6 @@ function Profile(props) {
 
         closeModal();
 
-
-
         // save image to DB
         API.saveImageToDB(userObj)
             .then(res => console.log(res.data))
@@ -74,6 +72,7 @@ function Profile(props) {
     }
 
 
+    
     // modal functionality
     const [modalIsOpen, setModalIsOpen] = useState(false);
     let subtitle;
@@ -97,30 +96,34 @@ function Profile(props) {
 
                 <div className="profile-card">
 
-                    {(profileImg) === undefined ?
-                        <>
-                            <MdPersonAdd
-                                onClick={openModal}
-                                className="profile-img-icon"
-                                fontSize="36px"
-                                color="#282c34"
-                            >
-
-
-                            </MdPersonAdd>
-                        </>
-                        :
-
+                    <div className="profile-card-img">
                         <div>
-                            <img alt="profileImage" src={profileImg} />
+                            {(profileImg) === undefined ?
+                                <>
+                                    <MdPersonAdd
+                                        onClick={openModal}
+                                        className="profile-img-icon"
+                                        fontSize="36px"
+                                        color="#282c34"
+                                    >
+                                    </MdPersonAdd>
+                                </>
+                                :
+                                <div>
+                                    <img alt="profileImage" src={profileImg} />
+                                </div>
+                            }
+                            <h4 className="profile-card-name">{userFirstName} {userLastName}</h4>
 
                         </div>
-                    }
+                    </div>
 
-                    <div>{userFirstName}</div>
-                    <div>{userLastName}</div>
+                    <div className="profile-card-info">
+                        <div className="drone-experience">
+                            Drone Experience:
+                        </div>
 
-
+                    </div>
                 </div>
 
                 <Modal
