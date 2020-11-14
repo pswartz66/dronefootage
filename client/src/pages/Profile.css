@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(232, 233, 223);
-    
+    background-color: rgb(80, 80, 80);
 }
 
 .profile-card {
@@ -16,6 +15,8 @@
     background-color: #282C34;
     border-radius: 20px;
     padding: 10px;
+    box-shadow: 0px 0px 20px 0px rgb(53, 53, 53);
+    
 }
 
 .profile-img-icon {

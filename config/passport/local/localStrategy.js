@@ -17,8 +17,7 @@ const strategy =
 
         // password here represents the password from the client login form
         function (username, password, done) {
-            console.log('inside auth local strat');
-            console.log(username);
+            console.log('inside auth local strat', username);
 
             // user here represents each database user as it's own object
             db.UserDB.findOne({ email: username }, function (err, user) {
@@ -30,7 +29,7 @@ const strategy =
                 // if the user does exist in the db we ned to compare passwords
                 // Using BCRYPT method
                 if (user) {
-
+                    
                     // password here represents the password from the client login form
                     // user.password represents the password that is already in the database
                     bcrypt.compare(password, user.password, (err, result) => {
@@ -38,8 +37,12 @@ const strategy =
                         // if the password matches return no error messages and the user_email
                         // user is sent back to the route handler in routes/api/user response
                         if (result === true) {
-                            console.log('Password Comparison Complete, Match Found!')
+                            console.log('Password Comparison Complete, Match Found!', user);
                             return done(null, user);
+                            // db.UserDB.findOne({ email: username }, function (err, doc) {
+                            //     if (err) { console.log(err)}
+                            //     res.send(doc);
+                            // })
                         }
                         // if the password does not match the users password
                         // log out a message/modal return false back to routes/api/user response

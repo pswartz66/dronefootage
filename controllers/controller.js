@@ -36,19 +36,8 @@ module.exports = {
 
     },
     login: function (req, res, next) {
-        console.log('login user email: ');
         // destruct object
         const { user_email } = req.body;
-
-        // db.UserDB.findOne({ email: user_email }, (err, doc) => {
-        //     // if there is an error then do not attempt authentication
-        //     if (err) {
-        //         console.log(`User: ${user_email} Does Not Exist, Please Sign Up`)
-        //         doc.end();
-        //     } else {
-
-        //     }
-        // })
 
         // continue to authentication
         next();
@@ -69,7 +58,7 @@ module.exports = {
         // destruct object
         const { usr_email, imageString } = req.body;
         console.log(req.body);
-        
+
         db.UserDB.findOneAndUpdate({ email: usr_email }, { $push: {profileImage: imageString }})
             .then(data => {
                 res.send(data)

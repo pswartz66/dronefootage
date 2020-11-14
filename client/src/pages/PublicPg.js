@@ -7,6 +7,7 @@ const PublicPg = (props) => {
 
     // user === email from the login page
     const user = props.location.state;
+    console.log(user);
 
 
     // here it seems like we need an authentication function that runs
@@ -19,7 +20,7 @@ const PublicPg = (props) => {
     return (
         <>
             <div>
-                <PublicHeader userName={user} />
+                <PublicHeader userData={user} />
 
                 <div className="public-container">
 

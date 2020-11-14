@@ -8,7 +8,7 @@ function Login() {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let [redirectTo, setRedirect] = useState(null);
-    let [db_user, setDb_user] = useState('');
+    let [db_user, setDb_user] = useState();
     let [shake, setShake] = useState('');
 
     const handleSubmit = (e) => {
@@ -20,17 +20,21 @@ function Login() {
             user_email: email,
             user_password: password
         }
-
         // test console log
-        console.log('Front end:');
-        console.log(userObj);
+        // console.log('Front end:');
+        // console.log(userObj);
 
         API.LoginUser(userObj)
             .then(res => {
-                console.log(res.data.user_email);
+                console.log(res.data);
+                let tempArr = [
+                    res.data.user_email,
+                    res.data.first_name,
+                    res.data.last_name
+                ]
 
                 if (res.data.user_email) {
-                    setDb_user(res.data.user_email);
+                    setDb_user(tempArr);
                     setRedirect('/public')
                 } else {
                     // if user form returns an error shake form 

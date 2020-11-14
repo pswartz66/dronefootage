@@ -13,21 +13,25 @@ const PublicHeader = (props) => {
     const openMenu = () => setShowMenu(!showMenu);
 
     // console.log(props);
+    let userEmail = props.userData[0];
+    let userFirstName = props.userData[1];
+    let userLastName = props.userData[2];
+    let userArr = [userEmail, userFirstName, userLastName];
 
     const logoutSession = () => {
         API.LogoutUser().then(res => {
             console.log(res.data);
         })
     }
-    
 
     return (
         <>
         <nav className="navbar navbar-default navbar-fixed-top">
 
             <div className="nav-left">
-                <img className="dfLogo" src={appLogo} alt="logo" />
-
+                <Link to={{ pathname: "/public", state: userArr }}>
+                    <img className="dfLogo" src={appLogo} alt="logo" />
+                </Link>
                 <form>
                     <MdSearch fontSize="16px" color="#282c34" />
 
@@ -43,11 +47,11 @@ const PublicHeader = (props) => {
 
             <div className="nav-right">
                 <MdPerson onClick={() => openMenu()} className="user-icon" color="#282C34" />
-                <div className="user-name">{props.userName}</div>
+                <div className="user-name">{userEmail}</div>
 
                 {(showMenu) ?
                     <div className="dropdown-visible">
-                        <Link to={{ pathname: "/profile", state: props.userName }} className="view-profile-btn">View Profile</Link>
+                        <Link to={{ pathname: "/profile", state: props.userData }} className="view-profile-btn">View Profile</Link>
                         <div className="dropdown-divider"></div>
 
                         <div className="dropdown-header">Account</div>
@@ -62,7 +66,7 @@ const PublicHeader = (props) => {
                     :
                     null
                 }
-                
+
             </div>
         </nav>
 

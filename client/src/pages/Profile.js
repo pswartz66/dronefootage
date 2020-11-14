@@ -20,9 +20,13 @@ Modal.setAppElement('#root');
 
 function Profile(props) {
 
+    let userEmail = props.location.state[0];
+    let userFirstName = props.location.state[1];
+    let userLastName = props.location.state[2];
 
-    let user = props.location.state;
-    console.log('Profile: ', user);
+    console.log('Profile: ', props.location.state);
+    const user = props.location.state;
+
 
     const [selectedFile, setSelectedFile] = useState()
     const [profileImg, setProfileImg] = useState(undefined);
@@ -51,17 +55,17 @@ function Profile(props) {
             return
         }
 
-        // I've kept this example simple by using the first image instead of multiple
+        // first image selected
         setSelectedFile(e.target.files[0])
-        
+
         let userObj = {
-            currentUser: user,
+            currentUser: userEmail,
             userImage: imgStr
         }
 
         closeModal();
 
-        
+
 
         // save image to DB
         API.saveImageToDB(userObj)
@@ -87,15 +91,11 @@ function Profile(props) {
 
     return (
         <div>
-            <PublicHeader userName={user} />
+            <PublicHeader userData={user} />
 
             <div className="profile-container">
 
-
                 <div className="profile-card">
-
-                    {/* <input type="file" name="file" accept=".png" onChange={onSelectFile} /> */}
-
 
                     {(profileImg) === undefined ?
                         <>
@@ -117,6 +117,10 @@ function Profile(props) {
                         </div>
                     }
 
+                    <div>{userFirstName}</div>
+                    <div>{userLastName}</div>
+
+
                 </div>
 
                 <Modal
@@ -133,6 +137,9 @@ function Profile(props) {
                         Cancel
                     </a>
                 </Modal>
+
+
+
             </div>
 
         </div>
