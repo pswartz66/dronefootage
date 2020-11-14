@@ -129,9 +129,9 @@ function Profile(props) {
                     <h3 ref={_subtitle => (subtitle = _subtitle)}>Select Image</h3>
                     <input className="profile-modal-input" type="file" name="file" accept="image/*" onChange={onSelectFile} />
 
-                    <button type="button" className="closeModalBtn">
+                    <a onClick={closeModal} className="closeModalBtn">
                         Cancel
-                    </button>
+                    </a>
                 </Modal>
             </div>
 
