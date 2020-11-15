@@ -24,7 +24,7 @@
     background-color: white;
     padding: 5px;
 }
-.settings-left-pane > ul {
+.settings-left-pane-link {
     padding: 10px;
     margin: 10px!important;
     border: solid 1px #282C34;
@@ -36,7 +36,9 @@
     font-size: 14px;
     outline: none;
     color: #282C34;
+    text-decoration: none;
 }
+
 .settings-right-pane {
     display: flex;
     flex-direction: column;

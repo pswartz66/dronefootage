@@ -32,8 +32,6 @@ ReactDOM.render(
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/settings" component={Settings} />
 
-        {/* <Route path="/settings" children={AccountInfo} /> */}
-
       </Switch>
 
     </Router>
