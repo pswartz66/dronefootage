@@ -38,6 +38,9 @@
     color: #282C34;
     text-decoration: none;
 }
+.selected {
+    background-color: yellow;
+}
 .settings-left-pane-privacy {
     padding: 10px;
     margin: 10px!important;

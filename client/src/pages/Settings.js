@@ -16,31 +16,29 @@ const Settings = (props) => {
             <div className="settings-flex-container">
                 <div className="settings-left-pane">
                     <NavLink 
-                        onClick={console.log('Account')}
                         className="settings-left-pane-account" 
-                        to="/settings"
+                        to="/settings/account"
+                        exact={true}
                     >
                         Account Information
                     </NavLink>
                     <NavLink 
-                        onClick={console.log('Privacy')}
-                        // onClick={console.log('privacy was clicked')} 
                         className="settings-left-pane-privacy" 
-                        to="/settings"
+                        to="/settings/privacy"
+                        exact={true}
+
                     >
                         Privacy
                     </NavLink>
                     <NavLink 
-                        onClick={console.log('Help')}
                         className="settings-left-pane-help" 
-                        to="/settings"
+                        to="/settings/help"
                     >
                         Help
                     </NavLink>
                     <NavLink 
-                        onClick={console.log('Delete')}
                         className="settings-left-pane-delete" 
-                        to="/settings"
+                        to="/settings/delete"
                     >
                         Delete Account
                     </NavLink>
@@ -48,10 +46,10 @@ const Settings = (props) => {
 
                 <div className="settings-right-pane">
                     <Switch>
-                        <Route path="/settings" render={() => <AccountInfo />} />
-                        <Route path="/settings" component={Privacy} />
-                        <Route path="/settings" component={Help} />
-                        <Route path="/settings" component={DeleteAccount} />
+                        <Route path="/settings/account" component={AccountInfo} />
+                        <Route path="/settings/privacy" component={Privacy} />
+                        <Route path="/settings/help" component={Help} />
+                        <Route path="/settings/delete" component={DeleteAccount} />
                     </Switch>
                 </div>
             </div>
