@@ -38,8 +38,8 @@
     color: #282C34;
     text-decoration: none;
 }
-.selected {
-    background-color: yellow;
+a.selected {
+    box-shadow: -6px 0px 0px #3D7AAC;
 }
 .settings-left-pane-privacy {
     padding: 10px;

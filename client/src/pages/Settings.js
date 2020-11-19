@@ -19,6 +19,7 @@ const Settings = (props) => {
                         className="settings-left-pane-account" 
                         to="/settings/account"
                         exact={true}
+                        activeClassName="selected"
                     >
                         Account Information
                     </NavLink>
@@ -26,19 +27,23 @@ const Settings = (props) => {
                         className="settings-left-pane-privacy" 
                         to="/settings/privacy"
                         exact={true}
-
+                        activeClassName="selected"
                     >
                         Privacy
                     </NavLink>
                     <NavLink 
                         className="settings-left-pane-help" 
                         to="/settings/help"
+                        exact={true}
+                        activeClassName="selected"
                     >
                         Help
                     </NavLink>
                     <NavLink 
                         className="settings-left-pane-delete" 
                         to="/settings/delete"
+                        exact={true}
+                        activeClassName="selected"
                     >
                         Delete Account
                     </NavLink>

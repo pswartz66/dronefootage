@@ -30,7 +30,7 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/public" component={PublicPg} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/settings" component={Settings} />
+        <Route path="/settings" component={Settings} />
 
       </Switch>
 
