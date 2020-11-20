@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './PublicHeader.css';
 import appLogo from '../../assets/images/dfLogo.png';
 import MdSearch from 'react-ionicons/lib/MdSearch';
@@ -10,8 +10,9 @@ const PublicHeader = (props) => {
 
     let [showMenu, setShowMenu] = useState(false);
 
-    const openMenu = () => setShowMenu(!showMenu);
-
+    const openMenu = () => {
+        setShowMenu(!showMenu);
+    }
     // console.log(props);
     let userEmail = props.userData[0];
     let userFirstName = props.userData[1];
@@ -23,6 +24,24 @@ const PublicHeader = (props) => {
             console.log(res.data);
         })
     }
+
+    // reference to outside click of the drop down
+    let dropdownRef = useRef();
+
+    useEffect(() => {
+        let handler = (event) => {
+            console.log(dropdownRef);
+            // must have a useref to the div below
+            if (!dropdownRef.current.contains(event.target)) {
+                setShowMenu(false);                
+            }
+        }
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler)
+        }
+    });
 
     return (
         <>
@@ -45,9 +64,11 @@ const PublicHeader = (props) => {
                 </form>
             </div>
 
-            <div className="nav-right">
-                <MdPerson onClick={() => openMenu()} className="user-icon" color="#282C34" />
+            {/* ref must be outside of the open menu function for outside click to work */}
+            <div ref={dropdownRef} className="nav-right">
                 <div className="user-name">{userEmail}</div>
+
+                <MdPerson onClick={() => openMenu()} className="user-icon" color="#282C34" />
 
                 {(showMenu) ?
                     <div className="dropdown-visible">
