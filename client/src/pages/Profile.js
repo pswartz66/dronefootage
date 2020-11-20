@@ -21,8 +21,8 @@ Modal.setAppElement('#root');
 function Profile(props) {
 
     let userEmail = props.location.state[0];
-    let userFirstName = props.location.state[1];
-    let userLastName = props.location.state[2];
+    let userFirstName = props.location.state[1].toUpperCase();
+    let userLastName = props.location.state[2].toUpperCase();
 
     console.log('Profile: ', props.location.state);
     const user = props.location.state;
@@ -72,7 +72,7 @@ function Profile(props) {
     }
 
 
-    
+
     // modal functionality
     const [modalIsOpen, setModalIsOpen] = useState(false);
     let subtitle;
@@ -94,7 +94,7 @@ function Profile(props) {
 
             <div className="profile-container">
 
-                <div className="profile-card">
+                <div className="profile-card-left">
 
                     <div className="profile-card-img">
                         <div>
@@ -103,7 +103,7 @@ function Profile(props) {
                                     <MdPersonAdd
                                         onClick={openModal}
                                         className="profile-img-icon"
-                                        fontSize="36px"
+                                        fontSize="28px"
                                         color="#282c34"
                                     >
                                     </MdPersonAdd>
@@ -113,17 +113,22 @@ function Profile(props) {
                                     <img alt="profileImage" src={profileImg} />
                                 </div>
                             }
-                            <h4 className="profile-card-name">{userFirstName} {userLastName}</h4>
 
                         </div>
                     </div>
-
                     <div className="profile-card-info">
-                        <div className="drone-experience">
-                            Drone Experience:
-                        </div>
+                        <h4 className="profile-card-name">{userFirstName} {userLastName}</h4>
+                        <p className="profile-background">Background</p>
+                        <p className="profile-drone-exp">Drone Experience: 6yrs</p>
 
                     </div>
+                </div>
+
+                <div className="">
+                    <div className="drone-experience">
+                        Drone Experience:
+                    </div>
+
                 </div>
 
                 <Modal
