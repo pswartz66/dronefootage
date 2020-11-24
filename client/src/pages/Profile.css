@@ -1,11 +1,14 @@
 .profile-container {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* align-items: flex-start; */
     width: 100%;
     background-color: #282C34;
 }
 
+
+/* Left container section */
 .profile-card-left {
     display: flex;
     flex-direction: column;
@@ -76,6 +79,53 @@ img[alt*="profileImage"] {
 }
 .profile-drone-exp {
     font-size: 14px;
+}
+
+
+/* Center container section */
+.profile-card-center {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 400px;
+    width: 500px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 20px 0px rgb(0, 0, 0);
+}
+.top-left-quad {
+    background-color: tomato;
+    height: 50%;
+    width: 50%;
+    border-top-left-radius: 16px;
+}
+.top-left-quad:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.top-right-quad {
+    background-color: teal;
+    height: 50%;
+    width: 50%;
+    border-top-right-radius: 16px;
+}
+.bottom-left-quad {
+    background-color: greenyellow;
+    height: 50%;
+    width: 50%;
+    border-bottom-left-radius: 16px;
+}
+.bottom-right-quad {
+    background-color: peru;
+    height: 50%;
+    width: 50%;
+    border-bottom-right-radius: 16px;
 }
 
 /* Modal Image Selector CSS */

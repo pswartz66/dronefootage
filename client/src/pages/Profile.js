@@ -124,9 +124,18 @@ function Profile(props) {
                     </div>
                 </div>
 
-                <div className="">
-                    <div className="drone-experience">
-                        Drone Experience:
+                <div className="profile-card-center">
+                    <div className="top-left-quad">
+
+                    </div>
+                    <div className="top-right-quad">
+                        
+                    </div>
+                    <div className="bottom-left-quad">
+                        
+                    </div>
+                    <div className="bottom-right-quad">
+                        
                     </div>
 
                 </div>
