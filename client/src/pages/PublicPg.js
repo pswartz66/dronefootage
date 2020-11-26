@@ -3,6 +3,7 @@ import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
 
 
+
 const PublicPg = (props) => {
 
     // user === email from the login page
@@ -17,6 +18,8 @@ const PublicPg = (props) => {
     // 2. returns the data as a check
     // 3. there needs to be some sort of gaurd here
 
+    let categories = ['Reveal', 'Tracking', 'Panning', 'Upward/Downward', 'Orbital', 'Overhead'];
+
     return (
         <>
             <div>
@@ -24,15 +27,29 @@ const PublicPg = (props) => {
 
                 <div className="public-container">
                     {(user) ?
-                    <div className="wireframe">
-                        <h2>Add user cards here</h2>
+                        <div className="public-container-margin">
+                            <div className="public-container-categories">
+                                {/* <h2>Add user cards here</h2> */}
 
-                    </div>
+                                {categories.map(category => {
+                                    return (
+                                        <div>
+                                            <div className="category">
+                                                {category}
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                )}
+
+                            </div>
+
+                        </div>
                         :
                         <div>
-                            
 
-                        </div> 
+
+                        </div>
                     }
                 </div>
 

@@ -30,7 +30,8 @@ const PublicHeader = (props) => {
 
     useEffect(() => {
         let handler = (event) => {
-            console.log(dropdownRef);
+            // console.log(dropdownRef);
+            
             // must have a useref to the div below
             if (!dropdownRef.current.contains(event.target)) {
                 setShowMenu(false);                
