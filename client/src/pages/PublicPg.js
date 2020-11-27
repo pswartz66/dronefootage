@@ -1,12 +1,12 @@
 import React from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
-
-
+import { Switch, Route, Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 
 const PublicPg = (props) => {
 
-    // user === email from the login page
+    // user === array of user data from the login page
     const user = props.location.state;
     console.log('Public page intercept: ', user);
 
@@ -18,43 +18,60 @@ const PublicPg = (props) => {
     // 2. returns the data as a check
     // 3. there needs to be some sort of gaurd here
 
-    let categories = ['Reveal', 'Tracking', 'Panning', 'Upward/Downward', 'Orbital', 'Overhead'];
+    let categories = ['Reveal', 'Tracking', 'Panning', 'Zoom', 'Orbital', 'Overhead'];
 
     return (
-        <>
-            <div>
-                <PublicHeader userData={user} />
+        <div>
 
-                <div className="public-container">
-                    {(user) ?
+            {(user) ?
+                <>
+                    <PublicHeader userData={user} />
+
+                    <div className="public-container">
+
                         <div className="public-container-margin">
-                            <div className="public-container-categories">
-                                {/* <h2>Add user cards here</h2> */}
 
+                            <div className="public-container-categories">
                                 {categories.map(category => {
                                     return (
                                         <div>
-                                            <div className="category">
+                                            <Link
+                                                to={{
+                                                    pathname: `/public/${category.toLowerCase()}`,
+                                                    state: user
+                                                }}
+                                                className="category"
+                                                onClick={() => console.log(`clicked ${category}`)}
+                                            >
                                                 {category}
-                                            </div>
+                                            </Link>
+
                                         </div>
                                     )
                                 }
                                 )}
 
+
                             </div>
-
                         </div>
-                        :
-                        <div>
 
-                        </div>
-                    }
+
+                    </div>
+                    <Switch>
+                        <Route path="/public/reveal" component={Reveal} />
+                    </Switch>
+                </>
+                :
+                <div>
+
                 </div>
 
-            </div>
+            }
 
-        </>
+
+
+        </div>
+
     )
 }
 

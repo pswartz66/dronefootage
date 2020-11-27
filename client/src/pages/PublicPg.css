@@ -1,5 +1,5 @@
 .public-container {
-    min-height: 800px;
+    min-height: 100vh;
     display: flex;
     color: white;
     background-color: #282C34;
@@ -24,5 +24,11 @@
     height: 300px;
     width: 300px;
     background-color: rgba(92, 92, 114, 0.862);
-    margin: 10px;
+    margin: 20px;
+    color: ghostwhite;
+    text-decoration: none;
+}
+.category:hover {
+    cursor: pointer;
+    font-size: 20px;
 }

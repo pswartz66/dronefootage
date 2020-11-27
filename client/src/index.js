@@ -28,7 +28,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/public" component={PublicPg} />
+        <Route path="/public" component={PublicPg} />
         <Route exact path="/profile" component={Profile} />
         <Route path="/settings" component={Settings} />
 
