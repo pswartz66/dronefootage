@@ -10,20 +10,19 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    
+    justify-content: center;
     /* height: auto; */
     /* width: 100%; */
     margin-top: 60px;
-    background-color: rgb(23, 78, 78);
+    background-color: #282C34;
     padding: 10px;
 }
 .category {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 200px;
-    background-color: rgba(54, 54, 63, 0.562);
+    height: 300px;
+    width: 300px;
+    background-color: rgba(92, 92, 114, 0.862);
     margin: 10px;
 }
-

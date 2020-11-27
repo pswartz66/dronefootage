@@ -48,7 +48,6 @@ const PublicPg = (props) => {
                         :
                         <div>
 
-
                         </div>
                     }
                 </div>
