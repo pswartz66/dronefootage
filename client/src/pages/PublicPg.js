@@ -57,9 +57,9 @@ const PublicPg = (props) => {
 
 
                     </div>
-                    <Switch>
+                    {/* <Switch>
                         <Route path="/public/reveal" component={Reveal} />
-                    </Switch>
+                    </Switch> */}
                 </>
                 :
                 <div>

@@ -7,7 +7,6 @@ import Login from './pages/Login'
 import PublicPg from './pages/PublicPg';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
-import AccountInfo from './components/AccountInfo';
 
 import {
   BrowserRouter as Router,
