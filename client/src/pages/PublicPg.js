@@ -1,7 +1,7 @@
 import React from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 
 const PublicPg = (props) => {
@@ -34,8 +34,8 @@ const PublicPg = (props) => {
                             <div className="public-container-categories">
                                 {categories.map(category => {
                                     return (
-                                        <div>
-                                            <Link
+                                        <div key={category}>
+                                            <NavLink
                                                 to={{
                                                     pathname: `/public/${category.toLowerCase()}`,
                                                     state: user
@@ -44,22 +44,18 @@ const PublicPg = (props) => {
                                                 onClick={() => console.log(`clicked ${category}`)}
                                             >
                                                 {category}
-                                            </Link>
+                                            </NavLink>
 
                                         </div>
                                     )
                                 }
                                 )}
 
-
                             </div>
                         </div>
 
-
                     </div>
-                    {/* <Switch>
-                        <Route path="/public/reveal" component={Reveal} />
-                    </Switch> */}
+
                 </>
                 :
                 <div>

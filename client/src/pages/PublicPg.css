@@ -3,7 +3,6 @@
     display: flex;
     color: white;
     background-color: #282C34;
-    /* width: 100%; */
     
 }
 .public-container-categories {
@@ -11,8 +10,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    /* height: auto; */
-    /* width: 100%; */
     margin-top: 60px;
     background-color: #282C34;
     padding: 10px;
@@ -27,8 +24,17 @@
     margin: 20px;
     color: ghostwhite;
     text-decoration: none;
+    animation-name: myanimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
 }
 .category:hover {
     cursor: pointer;
     font-size: 20px;
+}
+
+
+@keyframes myanimation {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

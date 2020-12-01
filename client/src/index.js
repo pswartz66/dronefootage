@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import PublicPg from './pages/PublicPg';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Reveal from './components/Reveal';
 
 import {
   BrowserRouter as Router,
@@ -27,7 +28,8 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route path="/public" component={PublicPg} />
+        <Route exact path="/public" component={PublicPg} />
+        <Route exact path="/public/reveal" component={Reveal} />
         <Route exact path="/profile" component={Profile} />
         <Route path="/settings" component={Settings} />
 
