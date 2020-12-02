@@ -3,6 +3,7 @@
     display: flex;
     color: white;
     background-color: #282C34;
+
     
 }
 .public-container-categories {
@@ -11,7 +12,9 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 60px;
-    background-color: #282C34;
+    /* background-color: #282C34; */
+    background-color: #3e434d;
+
     padding: 10px;
 }
 .category {
@@ -20,7 +23,9 @@
     align-items: center;
     height: 300px;
     width: 300px;
-    background-color: rgba(92, 92, 114, 0.862);
+    /* background-color: rgba(82, 102, 107, 0.973); */
+    background-color: #585d68;
+
     margin: 20px;
     color: ghostwhite;
     text-decoration: none;

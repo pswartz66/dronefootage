@@ -17,14 +17,23 @@ const Reveal = (props) => {
 
                 {(videos) !== [] ?
                     <>
-                        <h3 style={{ marginTop: 80 }}>Reveal Drone Shots</h3>
+                        <div className="reveal-filter-bar">
+                            <div className="reveal-left-header">Reveal Drone Shots</div>
 
+                            <div className="reveal-right-header">
+                                <div className="reveal-sort">Sort</div>
+                                <div className="reveal-bar">|</div>
+                                <div className="reveal-filter">Filter</div>
+                            </div>
+
+
+                        </div>
                         <div className="reveal-type-vids">
                             {videos.map(video => {
                                 return (
                                     <div className="video-card" key={video}>
                                         <div className="video-top-card">
-                                            
+
                                         </div>
 
                                     </div>

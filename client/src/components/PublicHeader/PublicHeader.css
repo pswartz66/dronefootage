@@ -1,5 +1,6 @@
 .navbar {
-    background-color: rgba(14, 14, 14, 0.973)!important;
+    /* background-color: rgba(14, 14, 14, 0.973)!important; */
+    background-color: #282C34;
     /* box-shadow: 0 2px 10px -2px #3d3d3d; */
     color: whitesmoke;
     font-family: 'Lato', sans-serif;
