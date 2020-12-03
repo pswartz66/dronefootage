@@ -42,6 +42,24 @@
     border-radius: 4px;
 }
 
+.dropdown-sort {
+    position: absolute;
+    top: 120px;
+    height: 210px;
+    width: 160px;
+    background-color: #848a94;
+    box-shadow: inset 0px 2px 1px 0px rgba(17, 17, 17, 0.459);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    animation-name: slidedown;
+    animation-duration: 0.5s;
+
+}
+
 .reveal-type-vids {
     /* height: 100vh; */
     /* width: 100px; */
@@ -68,12 +86,24 @@
 .video-top-card {
     height: 60%;
     width: 100%;
-    background-color: rgb(134, 118, 89);
+    background-color: rgba(89, 112, 134, 0.507);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 
 }
 @keyframes slideleft {
     0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes slidedown {
+    0% {top: 0px;}
+    80% {top: 160px;}
+    100% {top: 120px;}
+    0% {z-index: -10;}
+    40% {z-index: 0;}
+    100% {z-index: 0;}
+    0% {opacity: 0;}
+    90% {opacity: 0.6;}
     100% {opacity: 1;}
 }

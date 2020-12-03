@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PublicHeader from '../PublicHeader';
 import './Reveal.css';
 
@@ -6,6 +6,18 @@ const Reveal = (props) => {
     console.log('Reveal', props.location.state);
 
     let videos = ['video1', 'video2', 'video3', 'video4', 'video5', 'video6'];
+    const [showSort, setShowSort] = useState(false);
+    const [showFilter, setShowFilter] = useState(false);
+
+    const openSort = () => {
+        setShowSort(!showSort)
+    };
+
+    const openFilter = () => {
+        setShowFilter(!showFilter)
+    };
+
+    
 
 
     return (
@@ -21,10 +33,22 @@ const Reveal = (props) => {
                             <div className="reveal-left-header">Reveal Drone Shots</div>
 
                             <div className="reveal-right-header">
-                                <div className="reveal-sort">Sort</div>
+                                <div onClick={() => openSort()} className="reveal-sort">Sort
+                                {(showSort) ? (
+                                        <div className="dropdown-sort">
+                                            
+
+                                        </div>)
+                                        :
+                                        null
+                                    }
+
+                                </div>
+
                                 <div className="reveal-bar">|</div>
-                                <div className="reveal-filter">Filter</div>
+                                <div onClick={() => openFilter()} className="reveal-filter">Filter</div>
                             </div>
+
 
 
                         </div>
