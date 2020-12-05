@@ -3,6 +3,8 @@ import './PublicHeader.css';
 import appLogo from '../../assets/images/dfLogo.png';
 import MdSearch from 'react-ionicons/lib/MdSearch';
 import MdPerson from 'react-ionicons/lib/MdPerson';
+import MdCart from 'react-ionicons/lib/MdCart';
+
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 
@@ -67,6 +69,14 @@ const PublicHeader = (props) => {
 
             {/* ref must be outside of the open menu function for outside click to work */}
             <div ref={dropdownRef} className="nav-right">
+                {((props.path) === `/public/reveal` ||
+                 (props.path) === `/public/tracking` ||
+                 (props.path) === `/public/panning` ||
+                 (props.path) === `/public/zoom` ||
+                 (props.path) === `/public/orbital` ||
+                 (props.path) === `/public/overhead`
+                )
+                ? <MdCart color="white" className="shopping-cart"/>  : null}
                 <div className="user-name">{userEmail}</div>
 
                 <MdPerson onClick={() => openMenu()} className="user-icon" color="#282C34" />

@@ -45,24 +45,41 @@
 .dropdown-sort {
     position: absolute;
     top: 120px;
-    height: 210px;
+    height: 60px;
     width: 160px;
     background-color: #848a94;
     box-shadow: inset 0px 2px 1px 0px rgba(17, 17, 17, 0.459);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    
     animation-name: slidedown;
     animation-duration: 0.5s;
+}
+.stacked-sort {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    
+    animation-name: slidedown;
+    animation-duration: 0.5s;
+
+
+}
+.dropdown-sort > .stacked-sort > div {
+    font-size: 13px;
+    padding: 5px;
+    
+}
+.dropdown-sort > .stacked-sort > div:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
 
 }
 
 .reveal-type-vids {
-    /* height: 100vh; */
-    /* width: 100px; */
     background-color: #3e434d;
     display: flex;
     flex-direction: row;
@@ -77,6 +94,7 @@
     background-color: white;
     margin: 25px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     border-radius: 16px;
     animation-name: slideleft;
@@ -84,13 +102,60 @@
 
 }
 .video-top-card {
-    height: 60%;
+    height: 200px;
     width: 100%;
     background-color: rgba(89, 112, 134, 0.507);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+}
+.video-bottom-card {
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(212, 223, 243);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+/* if no videos are loaded show 'no videos messages' */
+.no-videos {
+    /* min-height: 100vh; */
+    margin-top: 120px;
+    height: 400px;
+    width: 600px;
+    background: linear-gradient(0deg, rgb(88,88,88) 0%, rgb(147, 147, 148) 20%, rgb(209,209, 209) 100%);
 
 }
+
+
+/* icons */
+.add-icon {
+    float: right;
+    background-color: rgb(109, 120, 167);
+    padding: 6px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+.add-icon:hover {
+    cursor: pointer;
+    width: 30px;
+    background-color: rgb(139, 153, 219);
+}
+.thumbs-down:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.heart-favorite:hover {
+    cursor: pointer;
+    fill: rgba(255, 0, 0, 0.932);
+    transform: scale(1.2);
+}
+.thumbs-up:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 @keyframes slideleft {
     0% {opacity: 0;}
     100% {opacity: 1;}
@@ -106,4 +171,10 @@
     0% {opacity: 0;}
     90% {opacity: 0.6;}
     100% {opacity: 1;}
+    0% {width: 0px;}
+    80% {width: 40px;}
+    100% {width: 160px;}
+    0% {color: #848a94;}
+    99% {color: #848a94;}
+    100% {color: #848a94;}
 }
