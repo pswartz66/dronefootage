@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PublicHeader from '../PublicHeader';
 import MdThumbsDown from 'react-ionicons/lib/MdThumbsDown';
 import MdThumbsUp from 'react-ionicons/lib/MdThumbsUp';
 import MdHeartOutline from 'react-ionicons/lib/MdHeartOutline';
 import MdAdd from 'react-ionicons/lib/MdAdd';
-
 
 import './Reveal.css';
 
@@ -27,6 +26,23 @@ const Reveal = (props) => {
         console.log(videoID, "add to favorites in user profile");
     }
 
+    let sortRef = useRef();
+    
+    useEffect(() => {
+        let handler = (event) => {
+            if (!sortRef.current.contains(event.target)) {
+                setShowSort(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+
+    })
+
 
     return (
         <div>
@@ -41,7 +57,7 @@ const Reveal = (props) => {
                             <div className="reveal-left-header">Reveal Drone Shots</div>
 
                             <div className="reveal-right-header">
-                                <div onClick={() => openSort()} className="reveal-sort">Sort</div>
+                                <div ref={sortRef} onClick={() => openSort()} className="reveal-sort">Sort</div>
                                 {(showSort) ? (
                                     <div className="dropdown-sort">
                                         <div className="stacked-sort">
@@ -60,7 +76,6 @@ const Reveal = (props) => {
                                 <div className="reveal-bar">|</div>
                                 <div onClick={() => openFilter()} className="reveal-filter">Filter</div>
                             </div>
-
 
 
                         </div>

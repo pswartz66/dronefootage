@@ -36,6 +36,7 @@ function Login() {
                 if (res.data.user_email) {
                     setDb_user(tempArr);
                     setRedirect('/public')
+
                 } else {
                     // if user form returns an error shake form 
                     // and reset css class after 1.5 seconds
@@ -82,7 +83,7 @@ function Login() {
                                 onChange={e => setEmail(e.target.value)}
                                 value={email}
                                 placeholder={"Email..."}
-                                autoComplete={'test'}
+                                autoFocus={true}
                             />
 
 

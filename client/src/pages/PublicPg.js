@@ -1,8 +1,7 @@
 import React from 'react';
 import './PublicPg.css';
 import PublicHeader from '../components/PublicHeader';
-import { Switch, Route, NavLink } from 'react-router-dom';
-import Reveal from '../components/Reveal';
+import { NavLink } from 'react-router-dom';
 
 const PublicPg = (props) => {
 
