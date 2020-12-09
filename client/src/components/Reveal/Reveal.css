@@ -89,8 +89,8 @@
 }
 
 .video-card {
-    height: 260px;
-    width: 230px;
+    /* height: 260px; */
+    /* width: 230px; */
     background-color: white;
     margin: 25px;
     display: flex;
@@ -102,11 +102,22 @@
 
 }
 .video-top-card {
-    height: 200px;
+    height: 60px;
     width: 100%;
     background-color: rgba(89, 112, 134, 0.507);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+    /* padding-bottom: 4px; */
+}
+.video-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    width: 230px;
+    /* margin: 0;     */
+    outline: none;
+    color: black;
 }
 .video-bottom-card {
     height: 60px;

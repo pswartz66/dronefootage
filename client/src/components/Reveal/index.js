@@ -4,13 +4,14 @@ import MdThumbsDown from 'react-ionicons/lib/MdThumbsDown';
 import MdThumbsUp from 'react-ionicons/lib/MdThumbsUp';
 import MdHeartOutline from 'react-ionicons/lib/MdHeartOutline';
 import MdAdd from 'react-ionicons/lib/MdAdd';
-
+import sampleVid from '../../assets/videos/sample-mp4.mp4';
 import './Reveal.css';
 
 const Reveal = (props) => {
     console.log('Reveal', props.location.state);
 
-    let videos = ['vid1', 'vid2', 'vid3', 'vid4', 'vid5', 'vid6'];
+    let videos = ['vid1', sampleVid, 'vid3', 'vid4', 'vid5', 'vid6'];
+
     const [showSort, setShowSort] = useState(false);
     const [showFilter, setShowFilter] = useState(false);
 
@@ -27,7 +28,7 @@ const Reveal = (props) => {
     }
 
     let sortRef = useRef();
-    
+
     useEffect(() => {
         let handler = (event) => {
             if (!sortRef.current.contains(event.target)) {
@@ -46,7 +47,7 @@ const Reveal = (props) => {
 
     return (
         <div>
-            <PublicHeader userData={props.location.state} path={props.location.pathname}/>
+            <PublicHeader userData={props.location.state} path={props.location.pathname} />
             {/* Reveal Videos go here */}
 
             <div className="reveal-container">
@@ -82,34 +83,44 @@ const Reveal = (props) => {
                         <div className="reveal-type-vids">
                             {videos.map(video => {
                                 return (
-                                    <div className="video-card" id={video} key={video}>
-                                        <div className="video-top-card">
-                                            <MdAdd className="add-icon"/>
+                                    <div id={video} key={video}>
+                                    {(video.slice(-4)) === ".mp4" ?
+                                        <div className="video-card">
+                                            <div className="video-top-card">
+                                                <MdAdd className="add-icon" />
 
+                                            </div>
+
+                                                <video controls autoPlay={true} className="video-main">
+                                                    <source src={video} type="video/mp4" />
+                                                </video>
+                                                
+                                            <div className="video-bottom-card">
+                                                <MdThumbsDown className="thumbs-down" />
+                                                <MdHeartOutline onClick={() => addToFavorites(video.toString())} className="heart-favorite" />
+                                                <MdThumbsUp className="thumbs-up" />
+
+                                            </div>
                                         </div>
+                                        : null
+                                }
 
-                                        <div className="video-bottom-card">
-                                            <MdThumbsDown className="thumbs-down"/>
-                                            <MdHeartOutline onClick={() => addToFavorites(video.toString())} className="heart-favorite"/>
-                                            <MdThumbsUp className="thumbs-up"/>
-
-                                        </div>
                                     </div>
                                 )
                             })}
 
                         </div>
                     </>
-                    
+
                     :
                     <div className="no-videos">
                         no videos to display...
                     </div>
                 }
-                
+
             </div>
 
-            
+
         </div>
     )
 }
