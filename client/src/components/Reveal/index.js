@@ -4,13 +4,16 @@ import MdThumbsDown from 'react-ionicons/lib/MdThumbsDown';
 import MdThumbsUp from 'react-ionicons/lib/MdThumbsUp';
 import MdHeartOutline from 'react-ionicons/lib/MdHeartOutline';
 import MdAdd from 'react-ionicons/lib/MdAdd';
+import MdDownload from 'react-ionicons/lib/MdDownload';
 import sampleVid from '../../assets/videos/sample-mp4.mp4';
 import './Reveal.css';
 
 const Reveal = (props) => {
     console.log('Reveal', props.location.state);
 
-    let videos = ['vid1', sampleVid, 'vid3', 'vid4', 'vid5', 'vid6'];
+    let videos = ['vid1', sampleVid, 'vid3', 'vid4', 'vid5', 'vid6'
+        ,sampleVid,sampleVid,sampleVid,sampleVid,sampleVid
+    ];
 
     const [showSort, setShowSort] = useState(false);
     const [showFilter, setShowFilter] = useState(false);
@@ -91,10 +94,11 @@ const Reveal = (props) => {
 
                                             </div>
 
-                                                <video controls autoPlay={true} className="video-main">
+                                                <video controls className="video-main">
                                                     <source src={video} type="video/mp4" />
+                                                    
                                                 </video>
-                                                
+
                                             <div className="video-bottom-card">
                                                 <MdThumbsDown className="thumbs-down" />
                                                 <MdHeartOutline onClick={() => addToFavorites(video.toString())} className="heart-favorite" />
